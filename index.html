@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		<title>Random Quote Generator Musicians</title>
+<script src="quetes.js"></script>
+	<script>
+	
+
+		
+		window.onload = init;
+		function init(){
+			generateQuote()
+		}
+		function generateQuote(){
+
+
+let twiterLink ="https://twitter.com/intent/tweet?hashtags=quotes&amp;related=freecodecamp&amp;text=%22"
+twiterLink+= "Life%20isn%E2%80%99t%20about%20getting%20and%20having%2C%20it%E2%80%99s%20about%20giving%20and%20being.%22%20";
+
+twiterLink+="Kevin%20Kruse";
+			document.getElementById("tweet-quote").href = twiterLink;
+			let quoteSize =QUOTEBANK.length;
+			let randomIndex = Math.floor(Math.random() *quoteSize);
+			let randomQuoteData = QUOTEBANK[randomIndex];
+			document.getElementById("text").innerText= randomQuoteData.quote;
+			document.getElementById("author").innerText= randomQuoteData.author;
+
+
+let quoteInApiFormat = randomQuoteData.quote.replace(/ /g, "%20");
+twitterLink += quoteInApiFormat;
+let authorInApiFormat = randomQuoteData.author.replace(/ /g, "%20");
+twiterLink += "  - "+authorInApiFormat;
+
+
+		}
+
+	</script> 
+	<style type="text/css">
+		*{font-size:1.5rem;
+				margin: 28px 20px  20px   20px;
+				text-align:center;}
+	</style>
+</head>
+<body>
+	<div  class="container">
+			<div class="row py-5">
+				<div class="col-md-6 offset-md-3">
+
+	<wrapper id="quote-box">
+		
+	<div class="card">
+  <!--div class="card-header">Random quote machine</div-->
+  <div class="card-body">
+    <h5 class="card-title"></h5>
+    	
+   
+    <p class="card-text text-center">
+ <b> <div id="text"></div> </b>
+    
+    </p>
+    	<p>-</p><div id="author"></div>
+    <button id="new-quote" onClick="generateQuote()"  class="btn btn-success">New Quote</button>
+	<a href ="#" id="tweet-quote" class="btn btn-primary" target="_blank">Tweet Quote</a>
+  </div>
+
+
+</wrapper>
+</div>
+</div>
+</div>
+	
+<script scr="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js">
+	
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>
